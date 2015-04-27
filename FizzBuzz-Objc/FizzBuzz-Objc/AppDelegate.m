@@ -14,8 +14,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     for(int i = 1; i<=100; i++){
-        BOOL *buzzed = isBuzzed(i);
-        BOOL *fizzed = isFizzed(i);
+        BOOL buzzed = [self isBuzzed:i];
+        BOOL fizzed = [self isFizzed:i];
         if(buzzed == true && fizzed == true){
             NSLog(@"FizzBuzz");
         } else if(buzzed == true && fizzed == false){
@@ -32,7 +32,7 @@
     return YES;
 }
 
-BOOL isBuzzed (int integer){
+- (BOOL)isBuzzed:(int)integer{
     NSString *intString = [NSString stringWithFormat:@"%i", integer];
     NSString *intThree = [NSString stringWithFormat:@"%i", 3];
     if(integer % 3 == 0){
@@ -44,7 +44,7 @@ BOOL isBuzzed (int integer){
     }
 }
 
-BOOL isFizzed (int integer){
+- (BOOL)isFizzed:(int)integer{
     NSString *intString = [NSString stringWithFormat:@"%i", integer];
     NSString *intFive = [NSString stringWithFormat:@"%i", 5];
     if(integer % 5 == 0){
